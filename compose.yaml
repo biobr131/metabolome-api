@@ -15,7 +15,7 @@ services:
       - postgres-fastapi-nginx-network
   fastapi:
     platform: linux/x86_64
-    image: biobr131/fastapi
+    image: biobr131/metabolome-api
     container_name: fastapi
     build: 
       context: ./app
@@ -35,7 +35,7 @@ services:
       - postgres-fastapi-nginx-network
   nginx:
     platform: linux/x86_64
-    image: biobr131/fastapi-nginx
+    image: biobr131/metabolome-api-nginx
     container_name: nginx
     build: ./nginx
     volumes:

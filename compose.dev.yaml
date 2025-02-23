@@ -15,7 +15,7 @@ services:
       - postgres-fastapi-nginx-jupyter-network
   fastapi:
     platform: linux/x86_64
-    image: biobr131/fastapi-dev
+    image: biobr131/metabolome-api-dev
     container_name: fastapi
     build: 
       context: ./app
@@ -36,7 +36,7 @@ services:
       - postgres-fastapi-nginx-jupyter-network
   nginx:
     platform: linux/x86_64
-    image: biobr131/fastapi-nginx
+    image: biobr131/metabolome-api-nginx
     container_name: nginx
     build: ./nginx
     volumes:
@@ -59,7 +59,7 @@ services:
         VENV: "bioinfo"
         DIR_CONDA: "/opt/conda"
         REQ_TXT: "requirements.txt"
-    image: biobr131/fastapi-jupyter
+    image: biobr131/metabolome-api-jupyter
     container_name: jupyter
     command: jupyter lab --ip=0.0.0.0 --allow-root --LabApp.token=''
     ports:
