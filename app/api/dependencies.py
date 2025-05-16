@@ -19,18 +19,22 @@ def get_session(dotenv_path: str) -> Session:
 
 
 async def get_session_prod():
-    with get_session(BASE_DIR / "db" / ".env") as session:
-        try:
-            yield session
-        except:
-            session.rollback()
-            raise
+    session = get_session(BASE_DIR / "db" / ".env")
+    try:
+        yield session
+    except:
+        session.rollback()
+        raise
+    finally:
+        session.close()
 
 
 async def get_session_dev():
-    with get_session(BASE_DIR / "db" / ".env.dev") as session:
-        try:
-            yield session
-        except:
-            session.rollback()
-            raise
+    session = get_session(BASE_DIR / "db" / ".env.dev")
+    try:
+        yield session
+    except:
+        session.rollback()
+        raise
+    finally:
+        session.close()
