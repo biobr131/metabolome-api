@@ -1,3 +1,2 @@
 -r common.txt
-sqlacodegen_v2
 sentry-sdk[fastapi]

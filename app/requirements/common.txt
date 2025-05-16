@@ -7,3 +7,4 @@ sqlmodel
 alembic
 sqladmin[full]
 strawberry-graphql[asgi, fastapi]
+sqlacodegen
