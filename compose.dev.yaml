@@ -19,7 +19,7 @@ services:
     container_name: fastapi
     build: 
       context: ./app
-      dockerfile: Dockerfile.dev
+      dockerfile: Dockerfile
       args:
         REQ_DIR: "requirements/"
         REQ_TXT: "dev.txt"
