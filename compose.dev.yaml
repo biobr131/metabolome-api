@@ -54,7 +54,7 @@ services:
       context: ./notebooks
       dockerfile: Dockerfile
       args:
-        DIR_WORK: "/usr/src/app/notebooks"
+        DIR_WORK: "/usr/src/notebooks"
         ENV_YML: "environment.yaml"
         VENV: "bioinfo"
         DIR_CONDA: "/opt/conda"
@@ -65,7 +65,7 @@ services:
     ports:
      - "8888:8888"
     volumes:
-     - .:/usr/src/app
+     - .:/usr/src
     tty: true
     stdin_open: true
     depends_on:
