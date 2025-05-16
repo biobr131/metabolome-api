@@ -12,7 +12,7 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
     networks:
-      - postgres-fastapi-nginx-network
+      - postgres-fastapi-nginx
   fastapi:
     platform: linux/x86_64
     image: biobr131/metabolome-api
@@ -32,7 +32,7 @@ services:
     depends_on:
       - postgres
     networks:
-      - postgres-fastapi-nginx-network
+      - postgres-fastapi-nginx
   nginx:
     platform: linux/x86_64
     image: biobr131/metabolome-api-nginx
@@ -46,10 +46,10 @@ services:
     depends_on:
       - fastapi
     networks:
-      - postgres-fastapi-nginx-network
+      - postgres-fastapi-nginx
 
 networks:
-  postgres-fastapi-nginx-network:
+  postgres-fastapi-nginx:
     driver: bridge
 
 volumes:
